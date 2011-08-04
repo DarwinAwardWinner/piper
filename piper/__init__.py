@@ -1,6 +1,7 @@
 import os
 import sys
 from subprocess import Popen, PIPE, CalledProcessError
+import errno
 
 def fork_and_pump(input, handle):
     """Send input to handle in a child process.
@@ -25,8 +26,9 @@ error somewhere else in the program."""
         # Ignore SIGPIPE
         except IOError, e:
             if e.errno == errno.EPIPE:
-                # EPIPE error
                 pass
+            else:
+                raise e
         except KeyboardInterrupt:
             pass
         exit()
