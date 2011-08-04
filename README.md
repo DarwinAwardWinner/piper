@@ -13,4 +13,11 @@
     if p.failed():
         raise Exception("Pipeline failed")
 
+## Installation
+
+piper is distributed as a standard Python package. You can download
+the tarball here: https://github.com/DarwinAwardWinner/piper/tarball/master
+
+Simply install it using your normal Python package installer. Probably
+`pip` or `easy_install` or setup.py.
 
